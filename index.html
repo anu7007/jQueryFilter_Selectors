@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-Filters And Selectors</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <label for="filters">Choose by Brand:</label>
+    <select name="filter1" id="filter1">
+        <option value="">All</option>
+        <option value="apple" class="brand">Apple</option>
+        <option value="samsung" class="brand">Samsung</option>
+        <option value="motorola" class="brand">Motorola</option>
+        <option value="asus" class="brand">Asus</option>
+        <option value="microsoft" class="brand">Microsoft</option>
+    
+    </select>
+    <label for="filters">Choose by Operating System:</label>
+    <select name="filter2" id="filter2">
+        <option value="">All</option>
+        <option value="iOs" class="os">iOs</option>
+        <option value="android" class="os">Android</option>
+        <option value="Windows" class="os">Windows</option>
+    </select>
+    <table id="product">
+     <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Operating System</th>
+            <th>Remove</th>
+          </tr>
+     </thead>
+     <tbody id="tbody">
+
+     </tbody>
+    </table>
+    <p>Search Here:</p>
+    <input id="myInput" type="text" placeholder="Search for ID or Name"></input>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

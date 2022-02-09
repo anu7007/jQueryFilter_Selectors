@@ -1,0 +1,50 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+th{
+    background-color: lightgoldenrodyellow;
+}
+body{
+    margin: 80px;
+    margin-left: 5%;
+    font-family: 'Times New Roman', Times, serif;
+}
+p{
+    display: inline;
+}
+#product thead tr th{
+    border: 1px solid black;
+}
+tbody td{
+    border: 1px solid black;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+select{
+    background-color: lightcyan;
+    padding: 5px;
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+label{
+    color:rgb(119, 48, 62)
+}
+#myInput{
+    background-color:lightgoldenrodyellow ;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
