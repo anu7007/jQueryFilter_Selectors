@@ -1,3 +1,5 @@
+var OS_array=['iOs', 'Android', 'Windows'];
+var brand_array=['Apple', 'Samsung', 'Motorola', 'Asus', 'Microsoft'];
 var products = [{
     "id": "100",
     "name": "iPhone 4S",
@@ -34,18 +36,12 @@ var products = [{
     "brand": "Microsoft",
     "os": "Windows"
 }];
-console.log(products);
-
-
-
-
-
 
 $(document).ready(function(){
 
     function dropdown1(){
         var dropdown1 = `<label for="filters">Choose by Brand:</label>\
-        <select name="filter1" id="filter1">\
+        <select name="filter1" id="filter1" class="filter">\
             <option value="">All</option>\
             <option value="apple" class="brand">Apple</option>\
             <option value="samsung" class="brand">Samsung</option>\
@@ -59,7 +55,7 @@ $(document).ready(function(){
 
     function dropdown2(){
         var dropdown2=`<label for="filters">Choose by Operating System:</label>
-        <select name="filter2" id="filter2">
+        <select name="filter2" id="filter2" class="filter">
             <option value="">All</option>
             <option value="iOs" class="os">iOs</option>
             <option value="android" class="os">Android</option>
@@ -71,19 +67,71 @@ $(document).ready(function(){
 
 
     function buildTable(){
+
         var table = ""
+        
         for(var i=0; i<products.length;i++){
             table+=`<tr><td>${products[i].id}</td>
                                     <td>${products[i].name}</td>
-                                    <td>${products[i].brand}</td>
-                                    <td>${products[i].os}</td>
+                                    <td class="brand" data-brand='${products[i].brand}'>${products[i].brand}</td>
+                                    <td class="os" data-os='${products[i].os}'>${products[i].os}</td>
                                     <button><td title="hide" id="hide"> ❌ </td></button>
-                                </tr>`
+                                </tr>`;
              
         }
         $("#tbody").html(table);
     };
     buildTable(products);
+    
+    $('.filter').change(function(){
+          filter_function();
+      });
+    // $('table tbody tr').show();
+
+    function filter_function(){
+        $('#tbody tr').hide(); //hide all rows
+        
+        var osFlag = 0;
+        var osValue = $('#filter1').val();
+        var brandFlag = 0;
+        var brandValue = $('#filter2').val();
+       //traversing each row one by one
+       console.log(osValue, brandValue);
+        $('#tbody tr').each(function() {  
+        
+          if(osValue == 0){   //if no value then display row
+            // console.log("hello1")
+            osFlag = 1;
+          }
+          else if(osValue == $(this).find("td.os").data("os")){
+            // console.log("hello2")
+            osFlag = 1;       //if value is same display row
+          }
+          else{
+            // console.log("hello3")
+            osFlag = 0;
+          }
+          
+          
+           if(brandValue == 0){
+            // console.log("hello4")
+          brandFlag = 1;
+          }
+          else if(brandValue == $(this).find("td.brand").data("brand")){
+            // console.log("hello5")
+            brandFlag = 1;
+          }
+          else{
+            // console.log("hello6")
+            brandFlag = 0;
+          }
+          if(osFlag && brandFlag){
+            // console.log("hello7")
+            $(this).show();  //displaying row which satisfies all conditions
+          }
+        });
+    }
+
 
     $("#tbody").on("click","#hide",function(){
         $(this).parent().hide();

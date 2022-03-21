@@ -48,3 +48,10 @@ label{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+#dropdown1{
+display: inline;
+}
+#dropdown2{
+float: left;
+
+}
